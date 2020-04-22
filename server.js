@@ -13,13 +13,15 @@ app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
 app.use(express.static("public"));
 
-MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workoutdb", { useNewUrlParser: true };
+MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bugetTracker", { useNewUrlParser: true };
 mongoose.connect(MONGODB_URI || "mongodb://<marcwithac>:<100Grovewood!>@ds033477.mlab.com:33477/heroku_khzqndml", 
 );
 
 // routes here
+app.use(require("./routes/api"));
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
