@@ -16,9 +16,10 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bugetTracker", { useNewUrlParser: true };
-mongoose.connect(MONGODB_URI || "mongodb://<marcwithac>:<100Grovewood!>@ds033477.mlab.com:33477/heroku_khzqndml", 
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
 
 // routes here
 app.use(require("./routes/api"));
