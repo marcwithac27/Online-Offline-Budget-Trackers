@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bugetTracker", { useNewUrlParser: true };
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bugetTracker", { useNewUrlParser: true };
 mongoose.connect(MONGODB_URI || "mongodb://<marcwithac>:<100Grovewood!>@ds033477.mlab.com:33477/heroku_khzqndml", 
 );
 
